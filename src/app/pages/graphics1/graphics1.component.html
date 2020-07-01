@@ -1,1 +1,85 @@
-<p>graphics1 works!</p>
+<section>
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <h4 class="card-title">{{graphicsDonuts.grafico1.leyenda}}</h4>
+        <div class="card-body">
+
+          <div>
+            <div>
+              <app-graphics-dognuts
+               [ChartData]="graphicsDonuts.grafico1.data"
+               [ChartLabels]="graphicsDonuts.grafico1.labels"
+               [ChartType]="graphicsDonuts.grafico1.type">
+              </app-graphics-dognuts>
+              <!-- <div style="display: block">
+                <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                  [chartType]="doughnutChartType">
+                </canvas>
+              </div> -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-6">
+      <div class="card">
+        <h4 class="card-title">{{graphicsDonuts.grafico2.leyenda}}</h4>
+        <div class="card-body">
+          <app-graphics-dognuts
+          [ChartData]="graphicsDonuts.grafico2.data"
+          [ChartLabels]="graphicsDonuts.grafico2.labels"
+          [ChartType]="graphicsDonuts.grafico2.type"
+          ></app-graphics-dognuts>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <h4 class="card-title">{{graphicsDonuts.grafico3.leyenda}}</h4>
+        <div class="card-body">
+
+          <div>
+            <div>
+              <app-graphics-dognuts
+              [ChartData]="graphicsDonuts.grafico3.data"
+              [ChartLabels]="graphicsDonuts.grafico3.labels"
+              [ChartType]="graphicsDonuts.grafico3.type"
+              >
+              </app-graphics-dognuts>
+              <!-- <div style="display: block">
+                <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                  [chartType]="doughnutChartType">
+                </canvas>
+              </div> -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-6">
+      <div class="card">
+        <h4 class="card-title">{{graphicsDonuts.grafico4.leyenda}}</h4>
+        <div class="card-body">
+          <app-graphics-dognuts
+          [ChartData]="graphicsDonuts.grafico4.data"
+          [ChartLabels]="graphicsDonuts.grafico4.labels"
+          [ChartType]="graphicsDonuts.grafico4.type"
+          ></app-graphics-dognuts>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

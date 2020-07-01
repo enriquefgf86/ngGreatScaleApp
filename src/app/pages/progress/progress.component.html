@@ -1,1 +1,75 @@
-<p>progress works!</p>
+<section>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Progress Bar</h4>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+              [attr.aria-valuenow]='percentage1' [style.width]="percentage1+'%'" aria-valuemin="0" aria-valuemax="100">
+            </div>
+          </div>
+
+          <br>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+              [attr.aria-valuenow]='percentage2' [style.width]="percentage2+'%'" aria-valuemin="0" aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <!-- <div class="input-group">
+            <div class="input-group-append">
+              <button (click)='add()' class="btn  btn-primary" type="button"><i large class="mdi mdi-plus-box"></i></button>
+            </div>
+            <input type="text" class="form-control" name="percentage" [(ngModel)]="percentage">
+            <div class="input-group-append">
+              <button (click)='rest()' class="btn  btn-primary" type="button"><i large class="mdi mdi-minus-box"></i></button>
+            </div>
+          </div> -->
+          <app-incrementer (changeProgress)="percentage1=$event" legend="Progress Blue" [percentage]='percentage1'></app-incrementer>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <app-incrementer (changeProgress)="percentage2=$event" legend="Progress Green" [percentage]='percentage2'></app-incrementer>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="input-group">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button">Button</button>
+            </div>
+            <input type="text" class="form-control">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button">Button</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>

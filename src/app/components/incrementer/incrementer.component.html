@@ -1,0 +1,13 @@
+<section>
+  <h3>{{legend}}</h3>
+</section>
+<div class="input-group">
+  <div class="input-group-append">
+    <button (click)='addRestValue(-5)' class="btn  btn-primary" type="button"><i large class="mdi mdi-minus-box"></i></button>
+  </div>
+  <input #textPercentage type="number" class="form-control" name="percentage" (ngModelChange)="onChange($event)" [(ngModel)]="percentage" min="1" max="100">
+
+  <div class="input-group-append">
+    <button (click)='addRestValue(5)' class="btn  btn-primary" type="button"><i large class="mdi mdi-plus-box"></i></button>
+  </div>
+</div>
