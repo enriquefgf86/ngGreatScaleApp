@@ -7,6 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
+
+// import { SettingsService } from './services/settings/settings.service';
+import { ServiceModuleModule } from './services/service-module.module';
 // import { IncrementerComponent } from './components/incrementer/incrementer.component';
 
 @NgModule({
@@ -16,7 +19,7 @@ import { RegisterComponent } from './login/register.component';
     RegisterComponent,
     // IncrementerComponent,
   ],
-  imports: [BrowserModule, PAGES_ROUTES_ROOT, PageModule, FormsModule],
+  imports: [BrowserModule, PAGES_ROUTES_ROOT, PageModule, FormsModule,ServiceModuleModule],
   providers: [],
   bootstrap: [AppComponent],
 })

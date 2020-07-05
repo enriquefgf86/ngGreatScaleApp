@@ -11,6 +11,7 @@ import { ProgressComponent } from './progress/progress.component';
 import { Graphics1Component } from './graphics1/graphics1.component';
 import { IncrementerComponent } from '../components/incrementer/incrementer.component';
 import { GraphicsDognutsComponent } from '../components/graphics-dognuts/graphics-dognuts.component';
+import { SaccountSettingsComponent } from './saccount-settings/saccount-settings.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GraphicsDognutsComponent } from '../components/graphics-dognuts/graphic
     Graphics1Component,
     PagesComponent,
     IncrementerComponent,
-    GraphicsDognutsComponent
+    GraphicsDognutsComponent,
+    SaccountSettingsComponent
   ],
   exports: [
     DashboardComponent,
