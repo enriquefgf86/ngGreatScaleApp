@@ -12,6 +12,8 @@ import { Graphics1Component } from './graphics1/graphics1.component';
 import { IncrementerComponent } from '../components/incrementer/incrementer.component';
 import { GraphicsDognutsComponent } from '../components/graphics-dognuts/graphics-dognuts.component';
 import { SaccountSettingsComponent } from './saccount-settings/saccount-settings.component';
+import { PromisesComponent } from './promises/promises.component';
+import { RXJSComponentComponent } from './rxjscomponent/rxjscomponent.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SaccountSettingsComponent } from './saccount-settings/saccount-settings
     PagesComponent,
     IncrementerComponent,
     GraphicsDognutsComponent,
-    SaccountSettingsComponent
+    SaccountSettingsComponent,
+    PromisesComponent,
+    RXJSComponentComponent
   ],
   exports: [
     DashboardComponent,
