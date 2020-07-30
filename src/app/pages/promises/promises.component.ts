@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { resolve } from 'dns';
-import { rejects } from 'assert';
 
 @Component({
   selector: 'app-promises',
@@ -11,7 +9,7 @@ export class PromisesComponent implements OnInit {
   constructor() {
     let promise = new Promise((resolve, reject) => {
       let counter = 0;
-     
+
       let interval=setInterval(() => {
         counter = counter + 1;
         console.log(counter);

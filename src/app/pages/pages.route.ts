@@ -7,11 +7,13 @@ import { Graphics1Component } from './graphics1/graphics1.component';
 import { SaccountSettingsComponent } from './saccount-settings/saccount-settings.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RXJSComponentComponent } from './rxjscomponent/rxjscomponent.component';
+import { AuthGuard } from '../guards/auth.guard';
 
 const pagesRoutes: Routes = [
   {
     path: '',
     component: PagesComponent,
+    canActivate: [AuthGuard],//de no estar logeado ninguna de estos path podar ser accesible segun la calse de Auth Guar d
     children: [
       { path: 'dashboard', component: DashboardComponent,data:{title:"DashBoard"} },
       { path: 'accountsettings', component: SaccountSettingsComponent,data:{title:"Settings"} },
