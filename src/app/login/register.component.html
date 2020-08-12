@@ -16,7 +16,7 @@
 
         <a href="javascript:void(0)" class="text-center db"><img src="assets/images/logo-icon.png"
             alt="Home" /><br /><img src="assets/images/logo-text.png" alt="Home" /></a>
-        <h3 class="box-title m-t-40 m-b-0">Register Now</h3><small>Create your account and enjoy</small>
+        <h3 class="box-title m-t-40 m-b-0">Register Now</h3><small>Create your account </small>
 
         <!-- //asociando el name del form builder asignado a a la variable registerForm  a este input -->
         <div class="form-group m-t-20">
@@ -26,7 +26,7 @@
           <!-- Validacion del campo required de Name -->
           <div class="row">
             <div class="col text-danger">
-              <p *ngIf="noValidFields('name')">name is obligatory</p>
+              <p *ngIf="noValidFields('name')">Name is Obligatory</p>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
           <!-- Validacion del campo required de Email -->
           <div class="row">
             <div class="col text-danger">
-              <p *ngIf="noValidFields('email')">email is obligatory and must be valid</p>
+              <p *ngIf="noValidFields('email')">Email is Obligatory and Must be Valid</p>
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@
           <!-- Validacion del campo required de Password -->
           <div class="row">
             <div class="col text-danger">
-              <p *ngIf="noValidFields('password')">password is obligatory</p>
+              <p *ngIf="noValidFields('password')">Password is Obligatory</p>
             </div>
           </div>
         </div>
@@ -66,13 +66,14 @@
           <!-- Validacion del campo required de confirmPassword -->
           <div class="row">
             <div class="col text-danger">
-              <p *ngIf="noValidFields('confirmPassword')">password is obligatory</p>
+              <p *ngIf="noValidFields('confirmPassword')">Password is Obligatory</p>
             </div>
           </div>
         </div>
+        <!-- Validacion del campo required de termCheck-->
         <div class="row">
           <div class="col text-danger">
-            <p *ngIf="noValidPasswords()">password must be equeal </p>
+            <p *ngIf="noValidPasswords()">Passwords must to Match </p>
           </div>
         </div>
 
@@ -91,19 +92,9 @@
                 <p *ngIf="checkTermsState()">You must accept the terms </p>
               </div>
             </div>
+
           </div>
         </div>
-
-        <!-- <div class="row">
-          <div class="col text-danger">
-            <p *ngIf="noValidFields('name')">name is obligatory</p>
-            <p *ngIf="noValidFields('email')">email is obligatory and must be valid</p>
-            <p *ngIf="noValidFields('password')">password is obligatory</p>
-            <p *ngIf="checkTermsState()">You must accept the terms </p>
-            <p *ngIf="noValidPasswords()">password must be equeal </p>
-
-          </div>
-        </div> -->
 
 
         <div class="form-group text-center m-t-20">
@@ -112,13 +103,16 @@
               Up</button>
           </div>
         </div>
+
         <div class="form-group m-b-0">
           <div class="col-sm-12 text-center">
             <p>Already have an account? <a routerLink="/login" routerLinkActive="router-link-active"
                 class="text-info m-l-5"><b>Sign In</b></a></p>
           </div>
         </div>
+
       </form>
+      <!-- End of form -->
     </div>
   </div>
 </section>

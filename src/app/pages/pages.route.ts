@@ -1,4 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../guards/auth.guard';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -7,7 +8,7 @@ import { Graphics1Component } from './graphics1/graphics1.component';
 import { SaccountSettingsComponent } from './saccount-settings/saccount-settings.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RXJSComponentComponent } from './rxjscomponent/rxjscomponent.component';
-import { AuthGuard } from '../guards/auth.guard';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const pagesRoutes: Routes = [
   {
@@ -21,6 +22,7 @@ const pagesRoutes: Routes = [
       { path: 'graphic1', component: Graphics1Component,data:{title:"Graphics"} },
       { path: 'promises', component: PromisesComponent ,data:{title:"Promises"}},
       { path: 'rxjs', component: RXJSComponentComponent,data:{title:"RXJS"} },
+      { path: 'user-profile', component: UserProfileComponent,data:{title:"User Profile"} },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     ],
   },

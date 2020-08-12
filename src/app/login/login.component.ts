@@ -11,7 +11,7 @@ declare const gapi: any;
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginFormSubmitted = false;
+  public loginFormSubmitted = false;
   public auth2: any;
 
   public loginForm = this.formbuilder.group({
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
   async startApp() {
     await this.loginService.googleInit();
     this.auth2 = this.loginService.auth2;
-    this.attachSignin(document.getElementById('my-signin2'));
+     this.attachSignin(document.getElementById('my-signin2'));
   }
 
   attachSignin(element) {

@@ -13,16 +13,6 @@ export class ProgressComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // add(value: number = 5) {
-  //   if (this.percentage >= 100) {
-  //     return;
-  //   } else this.percentage = this.percentage + value;
-  // }
-  // rest(value: number = 5) {
-  //   if (this.percentage <= 0) {
-  //     return;
-  //   } else this.percentage = this.percentage - value;
-  // }
 
   updatePercentage(event: number) {
     console.log('Event', event);

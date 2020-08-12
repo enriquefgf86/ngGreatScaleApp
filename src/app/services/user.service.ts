@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RegisterFormInterface } from '../interfaces/registerForm.interface';
 import { environment } from 'src/environments/environment';
@@ -6,6 +6,7 @@ import { LoginFormInterface } from '../interfaces/loginFormInterface';
 import { tap, map, catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { User } from '../models/user.model';
 declare const gapi: any;
 //Este servicio seria el encargado de hacer todos los servicos con el back end y demas
 
@@ -21,28 +22,62 @@ export class UserService {
   //Se inicializa el construcotr con los modules o importaciones a usar para su ejecucion .,El primero de
   //ellos eria el propio de Angular utilizado para hacer request al servidos (HttpClient), y se le asigna
   //a la variable http
+
+  public userRenew: User;
+
   constructor(
-    private http: HttpClient,
-    private router: Router,
-    private ngZone: NgZone
+    public http: HttpClient,
+    public router: Router,
+    public ngZone: NgZone
   ) {
     this.googleInit();
   }
 
+  get token(): string {
+    return localStorage.getItem('token');
+  }
+
+  get idUser(): string {
+    return this.userRenew.id || '';
+  }
+
   validateTokenRenew(): Observable<boolean> {
     const token = localStorage.getItem('token') || '';
+    console.log(token, 'este token');
+
     return this.http
       .get(`${baseUrl}/login/renew`, {
         headers: {
-          'user-token': token,
+          'user-token': this.token,
         },
       })
       .pipe(
-        tap((response: any) => {
+        map((response: any) => {
+          console.log(response);
+
           localStorage.setItem('token', response.renewToken);
+          console.log(localStorage.getItem('token'), '     nuevo token');
+
+          const {
+            email,
+            google,
+            id,
+            img = '',
+            name,
+            role,
+          } = response.userRenewed;
+
+          this.userRenew = new User(name, email, '', id, role, google, img); //creando una nueva instancia del usuario
+          return true;
         }),
-        map((response: any) => true),
-        catchError((error) => of(false))
+        // map(
+        //   (response) => true //transformando la respuesta operador booleano para su uso en el canactivated
+        // ),
+        catchError((error) => {
+          console.log(error);
+
+          return of(false);
+        })
       );
   }
 
@@ -67,16 +102,27 @@ export class UserService {
   //pasa el url al cual se hace el post  especifico, y como segundo parametro se pasaria esa interface asiganada
   //a la variable formdata
 
+  updateUserProfile(data: { email: String; name: String; role: String }) {
+    data = {
+      ...data,
+      role: this.userRenew.role,
+    };
+    return this.http.put(`${baseUrl}/user/${this.idUser}`, data, {
+      headers: {
+        'user-token': this.token,
+      },
+    });
+  }
+
   //======================================
   //loggeando el Usuario
   //=====================================
   loginUser(loginData: LoginFormInterface) {
-    console.log('loggin use');
+    console.log('logging user', loginData);
     return this.http.post(`${baseUrl}/login`, loginData).pipe(
       tap((response: any) => {
         console.log(response);
         localStorage.setItem('token', response.token);
-        // this.router.navigate(['/dashboard'])
       })
     );
   }

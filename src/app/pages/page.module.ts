@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.route';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 
 import { PagesComponent } from './pages.component';
@@ -14,6 +14,7 @@ import { GraphicsDognutsComponent } from '../components/graphics-dognuts/graphic
 import { SaccountSettingsComponent } from './saccount-settings/saccount-settings.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RXJSComponentComponent } from './rxjscomponent/rxjscomponent.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RXJSComponentComponent } from './rxjscomponent/rxjscomponent.component'
     GraphicsDognutsComponent,
     SaccountSettingsComponent,
     PromisesComponent,
-    RXJSComponentComponent
+    RXJSComponentComponent,
+    UserProfileComponent
   ],
   exports: [
     DashboardComponent,
@@ -39,6 +41,7 @@ import { RXJSComponentComponent } from './rxjscomponent/rxjscomponent.component'
     PAGES_ROUTES,
     FormsModule,
     ChartsModule,
+    ReactiveFormsModule
   ],
 })
 export class PageModule {}

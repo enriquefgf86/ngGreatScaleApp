@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Change your Email or/and Name </h4>
+        <form class="form p-t-20" [formGroup]="profileForm" (ngSubmit)="updtateProfile()" #form="ngForm">
+          <div class="form-group">
+            <label for="exampleInputuname2">User's Name</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="exampleInputuname2" placeholder="User's Name"
+                formControlName="name">
+              <div class="input-group-addon"><i class="ti-user"></i></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2"> User's Email-Address</label>
+            <div class="input-group">
+              <input type="email" class="form-control" id="exampleInputEmail2" placeholder="User's Email"
+                formControlName="email" [readOnly]="user.google">
+              <div class="input-group-addon"><i class="ti-email"></i></div>
+            </div>
+          </div>
+
+
+
+          <div class="text-left">
+            <button [disabled]='profileForm.invalid' type="submit"
+              class="btn btn-block btn-success waves-effect waves-light m-r-10">Save
+              Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">User's avatar</h4>
+        <h6 class="card-subtitle">User's Image</h6>
+        <div class=" text-center">
+
+          <img *ngIf="!previousImg" [src]="user.getImgUrl" alt="userImg" width="200px" height="200px">
+          <img *ngIf="previousImg" [src]="previousImg" alt="userImg" width="200px" height="200px">
+
+        </div>
+        <input type="file" (change)="changeImage($event.target.files[0])">
+        <br><br>
+        <br>
+        <div class="text-left">
+          <button [disabled]="!uploadImage" (click)="uploadChangedImage()" type="submit"
+            class="btn btn-block btn-success waves-effect waves-light m-r-10">Change Image</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

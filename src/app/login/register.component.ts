@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  formSubmitted = false;
+  public formSubmitted = false;
   public registerForm = this.formbuilder.group(
     {
       //Inicializando el form builder para el sign up
