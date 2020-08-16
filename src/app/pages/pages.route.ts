@@ -1,6 +1,7 @@
+
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../guards/auth.guard';
-
+///////////////////////Componentes//////////////////////////////////////////////////////////
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -9,6 +10,11 @@ import { SaccountSettingsComponent } from './saccount-settings/saccount-settings
 import { PromisesComponent } from './promises/promises.component';
 import { RXJSComponentComponent } from './rxjscomponent/rxjscomponent.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+
+////////////////////////Mantenimiento//////////////////////////
+import { UsersComponent } from './maintenance/users/users.component';
+import { DoctorsComponent } from './maintenance/doctors/doctors.component';
+import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
 
 const pagesRoutes: Routes = [
   {
@@ -23,6 +29,12 @@ const pagesRoutes: Routes = [
       { path: 'promises', component: PromisesComponent ,data:{title:"Promises"}},
       { path: 'rxjs', component: RXJSComponentComponent,data:{title:"RXJS"} },
       { path: 'user-profile', component: UserProfileComponent,data:{title:"User Profile"} },
+
+      /////////////////////////////////////rutas de mantenimiento//////////////////////////////////////
+      { path: 'users', component: UsersComponent,data:{title:"Users Maintenance"} },
+      { path: 'doctors', component: DoctorsComponent,data:{title:"Doctors Maintenance"} },
+      { path: 'hospitals', component: HospitalsComponent,data:{title:"Hospitals Maintenance"} },
+    /////////////////////////////////redirection//////////////////////////////////////
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     ],
   },

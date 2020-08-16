@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <input type="text" class="form-control" placeholder="Find the User" #wordBusqueda
+          (keyup)="searchByWords(wordBusqueda.value)">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="chargingMoreUsers">
+  <div class="col-12">
+    <div class="alert alert-info text-center">
+      <h4 class="alert-heading">Loading </h4>
+      <i class='fa fa-spinner fa-spin fa-2x'></i>
+      <p class='mb-0'>Please Wait ...</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Users Maintenance</h4>
+        <h6 class="card-subtitle">Users Registered({{totatUser}}) ({{pagesFrom}})</h6>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>User's Avatar</th>
+                <th>User's Email</th>
+                <th>User's Name</th>
+                <th>User's Role</th>
+                <th>User's Auth</th>
+                <th class="text-nowrap">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let user of allUsers">
+                <td class="width100 text-center cursor" (click)="imgUpdater(user)"><img class="imgAvatar"
+                    [src]="user.getImgUrl" alt="avatarUser"></td>
+                <td>{{user.email}}</td>
+                <td>{{user.name}}</td>
+                <td class="width100"><select id="selector" class="form-control" [(ngModel)]="user.role"
+                    (change)="changeUserRole(user)">
+                    <option value="ADMIN_ROLE">Admin</option>
+                    <option value="USER_ROLE">User</option>
+                  </select></td>
+                <td class="width100">
+                  <span *ngIf="user.google" class="label label-info">Google</span>
+                  <span *ngIf="!user.google" class="label label-danger">App User</span>
+                </td>
+
+                <td class="text-nowrap width100">
+                  <!-- <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i
+                      class="fa fa-pencil text-inverse m-r-10"></i> </a> -->
+                  <a data-toggle="tooltip" class="cursor" data-original-title="Clear" (click)="deleteUser(user)"> <i
+                      class="fa fa-close text-danger"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="wordBusqueda.value.length===0" class="row">
+          <button (click)="paginate(-5)" class="btn btn-secondary">Before</button>
+          &nbsp;
+          <button (click)="paginate(5)" class="btn btn-secondary">Next</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

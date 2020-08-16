@@ -16,23 +16,25 @@ export class User {
   ) {}
 
   get getImgUrl() {
-    if (this.img.includes('https')) {
+    if (!this.img) {
+      return `${baseUrl}/upload/users/no-image`;
+    } else if (this.img.includes('https')) {
       //para saber si el usuario se loggea con google
       return this.img;
     }
     //creanbdo metodo para recuperar imgaen de usuario loggeado al cual le est creado una instancia en '
-    if (this.img) {
-      console.log(this.img);
-      console.log(localStorage.getItem('token'), '    del modelo');
+    else if (this.img) {
+      // console.log(this.img);
+      // console.log(localStorage.getItem('token'), '    del modelo');
 
-      console.log(`${baseUrl}/upload/users/${this.img}`);
+      // console.log(`${baseUrl}/upload/users/${this.img}`);
 
       return `${baseUrl}/upload/users/${this.img}`;
     } else {
       return `${baseUrl}/upload/users/no-image`;
     }
   }
-  get printUser() {
-    return console.log(this.img, 'coming del modelo');
-  }
+  // get printUser() {
+  //   return console.log(this.img, 'coming del modelo');
+  // }
 }

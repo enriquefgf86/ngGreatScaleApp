@@ -2,8 +2,8 @@
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
 <section id="wrapper" class="login-register login-sidebar"
-  style="background-image:url(../assets/images/background/login-register.jpg);">
-  <div class="login-box card">
+  style="background-image:url(../assets/images/background/darkWallpaper.jpg);">
+  <div class="login-box card" style="background-color: rgba(255,255,255,0.3)">
     <div class="card-body">
       <!-- Formulario de registro -->
       <!-- //Al inicio del form se submite ya el mismo directamente al metodo creado para la creacion de
@@ -14,14 +14,14 @@
       <form class="form-horizontal form-material" id="loginform" (ngSubmit)="createUser()" autocomplete="off"
         [formGroup]="registerForm">
 
-        <a href="javascript:void(0)" class="text-center db"><img src="assets/images/logo-icon.png"
-            alt="Home" /><br /><img src="assets/images/logo-text.png" alt="Home" /></a>
-        <h3 class="box-title m-t-40 m-b-0">Register Now</h3><small>Create your account </small>
+        <a href="javascript:void(0)" class="text-center db"><img style="width:100px;height:100px"
+            src="../assets/images/background/logo.png" alt="Home" /></a>
+        <h3 class="box-title m-t-40 m-b-0" style="color:white;font-weight: bold;margin-top:10px;">Register Now</h3><small style="color:white;font-weight: bold">Create your account </small>
 
         <!-- //asociando el name del form builder asignado a a la variable registerForm  a este input -->
         <div class="form-group m-t-20">
           <div class="col-xs-12">
-            <input class="form-control" type="text" placeholder="Your Name" formControlName="name">
+            <input class="form-control" type="text" placeholder="Your Name" formControlName="name" id="inputLogin">
           </div>
           <!-- Validacion del campo required de Name -->
           <div class="row">
@@ -34,7 +34,7 @@
         <!-- //asociando el email del form builder asignado a a la variable registerForm  a este input -->
         <div class="form-group ">
           <div class="col-xs-12">
-            <input class="form-control" type="text" formControlName="email" placeholder="Email">
+            <input class="form-control" type="text" formControlName="email" placeholder="Email" id="inputLogin">
           </div>
           <!-- Validacion del campo required de Email -->
           <div class="row">
@@ -47,7 +47,8 @@
         <!-- //asociando el password del form builder asignado a a la variable registerForm  a este input -->
         <div class="form-group ">
           <div class="col-xs-12">
-            <input class="form-control" type="password" formControlName="password" placeholder="Password">
+            <input class="form-control" type="password" formControlName="password" placeholder="Password"
+              id="inputLogin">
           </div>
           <!-- Validacion del campo required de Password -->
           <div class="row">
@@ -60,8 +61,8 @@
         <!-- //asociando el confrim password del form builder asignado a a la variable registerForm  a este input -->
         <div class="form-group">
           <div class="col-xs-12">
-            <input class="form-control" type="password" formControlName="confirmPassword"
-              placeholder="Confirm Password">
+            <input class="form-control" type="password" formControlName="confirmPassword" placeholder="Confirm Password"
+              id="inputLogin">
           </div>
           <!-- Validacion del campo required de confirmPassword -->
           <div class="row">
@@ -84,7 +85,7 @@
 
             <div class="checkbox checkbox-primary p-t-0">
               <input formControlName="termCheck" id="checkbox-signup" type="checkbox">
-              <label for="checkbox-signup"> I agree to all </label>
+              <label for="checkbox-signup" style="color:white;font-weight: bold;"> I agree to all </label>
             </div>
             <!-- Validacion del campo required de termCheck-->
             <div class="row">
@@ -99,14 +100,15 @@
 
         <div class="form-group text-center m-t-20">
           <div class="col-xs-12">
-            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign
+            <button class="btn  btn-lg btn-block text-uppercase waves-effect waves-light btn-rounded" type="submit"
+              style="background-color:rgba(207, 0, 15, .6);color :white ;font-weight:bold">Sign
               Up</button>
           </div>
         </div>
 
         <div class="form-group m-b-0">
           <div class="col-sm-12 text-center">
-            <p>Already have an account? <a routerLink="/login" routerLinkActive="router-link-active"
+            <p style="color:white;font-weight: bold;margin-top:10px;">Already have an account? <a routerLink="/login" routerLinkActive="router-link-active"
                 class="text-info m-l-5"><b>Sign In</b></a></p>
           </div>
         </div>

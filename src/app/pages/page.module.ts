@@ -1,3 +1,4 @@
+import { ModifyImgComponent } from './../components/modify-img/modify-img.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
@@ -15,6 +16,9 @@ import { SaccountSettingsComponent } from './saccount-settings/saccount-settings
 import { PromisesComponent } from './promises/promises.component';
 import { RXJSComponentComponent } from './rxjscomponent/rxjscomponent.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UsersComponent } from './maintenance/users/users.component';
+import { DoctorsComponent } from './maintenance/doctors/doctors.component';
+import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,12 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     SaccountSettingsComponent,
     PromisesComponent,
     RXJSComponentComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UsersComponent,
+    DoctorsComponent,
+    HospitalsComponent,
+    ModifyImgComponent
+
   ],
   exports: [
     DashboardComponent,
@@ -41,7 +50,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     PAGES_ROUTES,
     FormsModule,
     ChartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
 })
 export class PageModule {}
