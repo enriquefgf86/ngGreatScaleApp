@@ -1,3 +1,4 @@
+import { PipesModule } from '../image/pipes.module';
 import { ModifyImgComponent } from './../components/modify-img/modify-img.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -19,6 +20,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UsersComponent } from './maintenance/users/users.component';
 import { DoctorsComponent } from './maintenance/doctors/doctors.component';
 import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
+import { DoctorComponent } from './maintenance/doctors/doctor.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { HospitalsComponent } from './maintenance/hospitals/hospitals.component'
     UsersComponent,
     DoctorsComponent,
     HospitalsComponent,
-    ModifyImgComponent
+    ModifyImgComponent,
+    DoctorComponent
 
   ],
   exports: [
@@ -51,6 +54,7 @@ import { HospitalsComponent } from './maintenance/hospitals/hospitals.component'
     FormsModule,
     ChartsModule,
     ReactiveFormsModule,
+    PipesModule,
   ],
 })
 export class PageModule {}

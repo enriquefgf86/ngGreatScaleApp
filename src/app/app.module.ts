@@ -11,6 +11,8 @@ import { RegisterComponent } from './login/register.component';
 // import { SettingsService } from './services/settings/settings.service';
 import { ServiceModuleModule } from './services/service-module.module';
 import { HttpClientModule } from '@angular/common/http';
+// import { PipesPipe } from './image/pipes.pipe';Estte modulo se crrea un modulo esprecial
+//para pipes en una carpeta aparte
 // import { IncrementerComponent } from './components/incrementer/incrementer.component';
 
 @NgModule({
