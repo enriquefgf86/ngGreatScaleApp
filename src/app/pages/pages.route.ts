@@ -15,6 +15,8 @@ import { UsersComponent } from './maintenance/users/users.component';
 import { DoctorsComponent } from './maintenance/doctors/doctors.component';
 import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
 import { DoctorComponent } from './maintenance/doctors/doctor.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { RoleGuardGuard } from '../guards/role-guard.guard';
 
 const pagesRoutes: Routes = [
   {
@@ -59,8 +61,10 @@ const pagesRoutes: Routes = [
       },
 
       /////////////////////////////////////rutas de mantenimiento//////////////////////////////////////
+
+/////ruta solo vista por administrador//
       {
-        path: 'users',
+        path: 'users',canActivate:[RoleGuardGuard],//pasandolo por el guardia de roles para s
         component: UsersComponent,
         data: { title: 'Users Maintenance' },
       },
@@ -78,6 +82,11 @@ const pagesRoutes: Routes = [
         path: 'hospitals',
         component: HospitalsComponent,
         data: { title: 'Hospitals Maintenance' },
+      },
+      {
+        path: 'search_result/:textTerm',
+        component: SearchResultsComponent,
+        data: { title: 'Search Result' },
       },
       /////////////////////////////////redirection//////////////////////////////////////
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

@@ -79,25 +79,26 @@ export class SearchesService {
   search(type: 'users' | 'doctors' | 'hospitals', word: string) {
     const url = `${baseUrl}/allSearch/specific/${type}/${word}`;
     return this.http.get<any[]>(url, this.headers).pipe(
-      map(
-        (response: any) => {
-          switch (type) {
-            case 'users':
-              return this.transformAnyToUser(response.result);
+      map((response: any) => {
+        switch (type) {
+          case 'users':
+            return this.transformAnyToUser(response.result);
 
-            case 'hospitals':
-              return this.transformAnyToHospital(response.result);
+          case 'hospitals':
+            return this.transformAnyToHospital(response.result);
 
-              case 'doctors':
-              return this.transformAnyToDoctor(response.result);
+          case 'doctors':
+            return this.transformAnyToDoctor(response.result);
 
-            default:
-              return [];
-          }
+          default:
+            return [];
         }
-        // response.result
-        // console.log(response.result);
-      )
+      })
     );
+  }
+
+  globalSearch(textTerm: String) {
+    const url = `${baseUrl}/allSearch/${textTerm}`;
+    return this.http.get(url, this.headers);
   }
 }

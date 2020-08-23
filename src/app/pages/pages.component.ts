@@ -1,3 +1,4 @@
+import { SidebarService } from 'src/app/services/services.index';
 import { Component, OnInit } from '@angular/core';
 
 // declare function init_plugins();
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
   // styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private sidebarService:SidebarService
+  ) {}
 
   ngOnInit(): void {
     // init_plugins();
+    this.sidebarService.loadMenu()
   }
 }

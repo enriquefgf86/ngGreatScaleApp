@@ -1,14 +1,15 @@
 <header class="topbar">
-  <nav class="navbar top-navbar navbar-expand-md navbar-light">
+  <nav id="navBackImage" class="navbar top-navbar navbar-expand-md navbar-light">
     <!-- ============================================================== -->
     <!-- Logo -->
     <!-- ============================================================== -->
-    <div class="navbar-header">
+    <div class="navbar-header" id="navBackImage">
       <a class="navbar-brand" href="index.html">
         <!-- Logo icon --><b>
           <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
           <!-- Dark Logo icon -->
-          <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+          <img src="../assets/images/background/logo.png" style="width:90px;height:50px" alt="homepage"
+            class="dark-logo" />
           <!-- Light Logo icon -->
           <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
         </b>
@@ -41,12 +42,23 @@
         <!-- ============================================================== -->
         <!-- Search -->
         <!-- ============================================================== -->
-        <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark"
-            href="javascript:void(0)"><i class="ti-search"></i></a>
-          <form class="app-search">
-            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i
-                class="ti-close"></i></a> </form>
+
+
+        <li data-toggle="collapse" data-target="#demo" class="nav-item hidden-xs-down search-box">
+          <a type="button"> <i class="ti-search"></i></a>
+
         </li>
+        <form id="demo" class="collapse" (ngSubmit)="search(searchTerms.value)">
+          <input #searchTerms id="search" type="text" class="form-control searchInput" placeholder="Search & Enter">
+          <a class="srh-btn">
+            <i class="ti-close" data-toggle="collapse" data-target="#demo"></i>
+          </a>
+        </form>
+
+
+
+
+
         <!-- ============================================================== -->
 
         <!-- ============================================================== -->

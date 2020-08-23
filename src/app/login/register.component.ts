@@ -35,10 +35,10 @@ export class RegisterComponent implements OnInit {
 
   createUser() {
     this.formSubmitted = true;
-    console.log(this.registerForm);
+    // console.log(this.registerForm);
 
     if (this.registerForm.invalid) {
-      console.log('Error on Registering Form');
+      // console.log('Error on Registering Form');
       return;
     } else {
       this.createUserService.createUser(this.registerForm.value).subscribe(

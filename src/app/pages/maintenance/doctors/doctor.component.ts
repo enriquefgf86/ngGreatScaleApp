@@ -6,7 +6,7 @@ import { Hospital } from 'src/app/models/hospital.model';
 import { Doctor } from 'src/app/models/doctor.model';
 import Swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
-import { error } from 'console';
+// import { error } from 'console';
 import { delay } from 'rxjs/operators';
 
 @Component({

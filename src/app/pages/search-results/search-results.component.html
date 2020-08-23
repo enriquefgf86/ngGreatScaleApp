@@ -1,0 +1,107 @@
+<div class="row animated fadeIn fast">
+
+   <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-body">
+          <h4 class="card-title">User Results</h4>
+
+          <div class="alert alert-info" *ngIf="searchUsers.length===0">
+            <p class="mb-0">
+              No Users Found
+            </p>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th><h5>Avatar</h5></th>
+                  <th><h5>User Name</h5></th>
+
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let user of searchUsers" class="animated fadeInDown ">
+                  <td><img [src]="user.img | pipes:'users'" class="imgAvatar1" /></td>
+                  <td>{{user.name}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-body">
+          <h4 class="card-title">Doctor Results</h4>
+
+          <div class="alert alert-info" *ngIf="searchDoctors.length===0">
+            <p class="mb-0">
+              No Doctor Found
+            </p>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>Doctor Name</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let doctor of searchDoctors" class="animated fadeInDown " (click)="toDoctor(doctor)">
+                  <td><img [src]="doctor.img | pipes:'doctors'" class="imgAvatar1" /></td>
+                  <td>{{doctor.name}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-body">
+          <h4 class="card-title">Hospital Results</h4>
+
+          <div class="alert alert-info" *ngIf="searchHospitals.length===0">
+            <p class="mb-0">
+              No Hospital Found
+            </p>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Picture</th>
+                  <th>Hospital Name</th>
+
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let hospital of searchHospitals" class="animated fadeInDown ">
+                  <td><img [src]="hospital.img | pipes:'hospitals'" class="imgAvatar1" /></td>
+                  <td>{{hospital.name}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

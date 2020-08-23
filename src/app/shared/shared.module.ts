@@ -6,6 +6,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadCrumbsComponent } from './bread-crumbs/bread-crumbs.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,6 @@ import { RouterModule } from '@angular/router';
     BreadCrumbsComponent,
     NoPageFoundComponent,
   ],
-  imports: [
-    CommonModule,RouterModule
-
-  ],
+  imports: [CommonModule, RouterModule, FormsModule],
 })
 export class SharedModule {}

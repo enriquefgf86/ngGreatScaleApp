@@ -50,6 +50,10 @@ export class UserService {
     };
   }
 
+  get userRole(): 'ADMIN_ROLE' | 'USER_ROLE' {
+    return this.userRenew.role;
+  }
+
   validateTokenRenew(): Observable<boolean> {
     const token = localStorage.getItem('token') || '';
     // console.log(token, 'este token');
@@ -66,6 +70,7 @@ export class UserService {
 
           localStorage.setItem('token', response.renewToken);
           // console.log(localStorage.getItem('token'), '     nuevo token');
+          localStorage.setItem('menu', JSON.stringify(response.menu)); //estableciendo el menu traido segun el usuario
 
           const {
             email,
@@ -100,6 +105,7 @@ export class UserService {
       tap((response: any) => {
         console.log(response);
         localStorage.setItem('token', response.token);
+        localStorage.setItem('menu', JSON.stringify(response.menu));
       })
     );
   } //Este seria el metodo de conexion a nuestra base de datos que triggeriza la creacion de un usuario
@@ -128,6 +134,7 @@ export class UserService {
       tap((response: any) => {
         console.log(response);
         localStorage.setItem('token', response.token);
+        localStorage.setItem('menu', JSON.stringify(response.menu));
       })
     );
   }
@@ -137,6 +144,7 @@ export class UserService {
     return this.http.post(`${baseUrl}/login/google`, { token }).pipe(
       tap((response: any) => {
         localStorage.setItem('token', response.token);
+        localStorage.setItem('menu', JSON.stringify(response.menu));
         console.log(response);
       })
     );
@@ -159,6 +167,7 @@ export class UserService {
 
   logOut() {
     localStorage.removeItem('token'),
+      localStorage.removeItem('menu'),
       this.auth2.signOut().then(() => {
         this.ngZone.run(() => {
           this.router.navigate(['/login']);
@@ -199,6 +208,6 @@ export class UserService {
   }
 
   saveUserRole(user: User) {
-    return this.http.put(`${baseUrl}/user/${user.id}`,user,this.headers);
+    return this.http.put(`${baseUrl}/user/${user.id}`, user, this.headers);
   }
 }
