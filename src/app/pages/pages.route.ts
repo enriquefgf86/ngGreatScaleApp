@@ -23,74 +23,79 @@ const pagesRoutes: Routes = [
     path: '',
     component: PagesComponent,
     canActivate: [AuthGuard], //de no estar logeado ninguna de estos path podar ser accesible segun la calse de Auth Guar d
-    children: [
-      {
-        path: 'dashboard',
-        component: DashboardComponent,
-        data: { title: 'DashBoard' },
-      },
-      {
-        path: 'accountsettings',
-        component: SaccountSettingsComponent,
-        data: { title: 'Settings' },
-      },
-      {
-        path: 'progress',
-        component: ProgressComponent,
-        data: { title: 'Process progress' },
-      },
-      {
-        path: 'graphic1',
-        component: Graphics1Component,
-        data: { title: 'Graphics' },
-      },
-      {
-        path: 'promises',
-        component: PromisesComponent,
-        data: { title: 'Promises' },
-      },
-      {
-        path: 'rxjs',
-        component: RXJSComponentComponent,
-        data: { title: 'RXJS' },
-      },
-      {
-        path: 'user-profile',
-        component: UserProfileComponent,
-        data: { title: 'User Profile' },
-      },
+    canLoad:[AuthGuard],
+    loadChildren: () =>
+      import('./child-routes.module').then((m) => m.ChildRoutesModule),
 
-      /////////////////////////////////////rutas de mantenimiento//////////////////////////////////////
+    // children: [
+    //   {
+    //     path: 'dashboard',
+    //     component: DashboardComponent,
+    //     data: { title: 'DashBoard' },
+    //   },
+    //   {
+    //     path: 'accountsettings',
+    //     component: SaccountSettingsComponent,
+    //     data: { title: 'Settings' },
+    //   },
+    //   {
+    //     path: 'progress',
+    //     component: ProgressComponent,
+    //     data: { title: 'Process progress' },
+    //   },
+    //   {
+    //     path: 'graphic1',
+    //     component: Graphics1Component,
+    //     data: { title: 'Graphics' },
+    //   },
+    //   {
+    //     path: 'promises',
+    //     component: PromisesComponent,
+    //     data: { title: 'Promises' },
+    //   },
+    //   {
+    //     path: 'rxjs',
+    //     component: RXJSComponentComponent,
+    //     data: { title: 'RXJS' },
+    //   },
+    //   {
+    //     path: 'user-profile',
+    //     component: UserProfileComponent,
+    //     data: { title: 'User Profile' },
+    //   },
 
-/////ruta solo vista por administrador//
-      {
-        path: 'users',canActivate:[RoleGuardGuard],//pasandolo por el guardia de roles para s
-        component: UsersComponent,
-        data: { title: 'Users Maintenance' },
-      },
-      {
-        path: 'doctors',
-        component: DoctorsComponent,
-        data: { title: 'Doctors Maintenance' },
-      },
-      {
-        path: 'doctor/:id',
-        component: DoctorComponent,
-        data: { title: 'Doctor Edit' },
-      },
-      {
-        path: 'hospitals',
-        component: HospitalsComponent,
-        data: { title: 'Hospitals Maintenance' },
-      },
-      {
-        path: 'search_result/:textTerm',
-        component: SearchResultsComponent,
-        data: { title: 'Search Result' },
-      },
-      /////////////////////////////////redirection//////////////////////////////////////
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    ],
+    //   /////////////////////////////////////rutas de mantenimiento//////////////////////////////////////
+
+    //   /////ruta solo vista por administrador//
+    //   {
+    //     path: 'users',
+    //     canActivate: [RoleGuardGuard], //pasandolo por el guardia de roles para s
+    //     component: UsersComponent,
+    //     data: { title: 'Users Maintenance' },
+    //   },
+    //   {
+    //     path: 'doctors',
+    //     component: DoctorsComponent,
+    //     data: { title: 'Doctors Maintenance' },
+    //   },
+    //   {
+    //     path: 'doctor/:id',
+    //     component: DoctorComponent,
+    //     data: { title: 'Doctor Edit' },
+    //   },
+    //   {
+    //     path: 'hospitals',
+    //     component: HospitalsComponent,
+    //     data: { title: 'Hospitals Maintenance' },
+    //   },
+    //   {
+    //     path: 'search_result/:textTerm',
+    //     component: SearchResultsComponent,
+    //     data: { title: 'Search Result' },
+    //   },
+    //   /////////////////////////////////redirection//////////////////////////////////////
+    //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    // ],
   },
 ];
 

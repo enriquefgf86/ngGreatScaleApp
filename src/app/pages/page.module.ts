@@ -22,6 +22,7 @@ import { DoctorsComponent } from './maintenance/doctors/doctors.component';
 import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
 import { DoctorComponent } from './maintenance/doctors/doctor.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { ChildRoutesModule } from './child-routes.module';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     CommonModule,
     SharedModule,
     PAGES_ROUTES,
+    // ChildRoutesModule,
     FormsModule,
     ChartsModule,
     ReactiveFormsModule,
