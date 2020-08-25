@@ -22,7 +22,6 @@ import { DoctorsComponent } from './maintenance/doctors/doctors.component';
 import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
 import { DoctorComponent } from './maintenance/doctors/doctor.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import { ChildRoutesModule } from './child-routes.module';
 
 @NgModule({
   declarations: [
@@ -41,8 +40,7 @@ import { ChildRoutesModule } from './child-routes.module';
     HospitalsComponent,
     ModifyImgComponent,
     DoctorComponent,
-    SearchResultsComponent
-
+    SearchResultsComponent,
   ],
   exports: [
     DashboardComponent,
